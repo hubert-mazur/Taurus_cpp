@@ -22,6 +22,15 @@ class TitlePage : public Page
 		{
 
 		}
+		std::string get_autor(void)
+		{
+			return _autor;
+		}
+		std::string get_subtitle(void)
+		{
+			return _sub_title;
+		}
+
 	private:
 	std::string _autor;
 	std::string _sub_title;
