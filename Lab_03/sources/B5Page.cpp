@@ -9,7 +9,3 @@ void B5Page::SetHeader (std::string str)
 {
 	_Header=str;
 }
-B5Page* B5Page::Copy (void)
-{
-	return new B5Page (_Header,_text_buffer);
-}
