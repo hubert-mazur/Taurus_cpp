@@ -12,7 +12,7 @@ class Publication
 	static Publication* Create (std::string name,int number_of_pages,std::string format); 
 	// statyczna funkcja tworzenia odpowiednich publikacji
 
-	virtual int NPages(void) = 0;
+	virtual int NPages() = 0;
 	// czysto wirtualna metoda zwracajaca liczbe stron
 
 	protected:

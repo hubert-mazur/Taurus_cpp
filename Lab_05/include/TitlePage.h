@@ -9,12 +9,12 @@ class TitlePage : public Publication {
 			_Title = str;
 		}
 
-		std::string GetTitle  (void) // metoda zwracajaca tytul
+		std::string GetTitle  () // metoda zwracajaca tytul
 		{
 			return _Title;
 		}
 
-		int NPages(void) override // nadpisana metoda zwracajaca liczbe stron
+		int NPages() override // nadpisana metoda zwracajaca liczbe stron
 		{
 			return 1;
 		}

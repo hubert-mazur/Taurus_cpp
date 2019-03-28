@@ -46,10 +46,10 @@ int main()
     Publication* CppBook20A4 { Publication::Create("Book",20,"A4") };
     Publication* CppBook10A4 { Publication::Create("Book",10,"A4") };
 
-    Book* CppBook15B5Ptr = dynamic_cast<Book*>(CppBook15B5);
-    std::cout<< "B5 number of pages: " << CppBook15B5Ptr->NPages() << "\n";
-    ++(*CppBook15B5Ptr); // dodanie nowej/pustej strony
-    std::cout<< "B5 number of pages: " << CppBook15B5Ptr->NPages() << "\n";
+     Book* CppBook15B5Ptr = dynamic_cast<Book*>(CppBook15B5);
+     std::cout<< "B5 number of pages: " << CppBook15B5Ptr->NPages() << "\n";
+     ++(*CppBook15B5Ptr); // dodanie nowej/pustej strony
+     std::cout<< "B5 number of pages: " << CppBook15B5Ptr->NPages() << "\n";
 
     Book* CppBook20A4Ptr = dynamic_cast<Book*>(CppBook20A4);
     Book* CppBook10A4Ptr = dynamic_cast<Book*>(CppBook10A4);

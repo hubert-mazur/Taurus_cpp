@@ -9,7 +9,7 @@ class Book : public Publication
 {
 	public:
 
-		int NPages(void) override;
+		int NPages() override;
 		// nadpisanie funkcji wirtualnej z klasy bazowej
 
 
@@ -19,26 +19,28 @@ class Book : public Publication
 
 		}
 
-		TitlePage* TitlePagePtr (void) // metoda zwracajaca tytul publikacji
+		TitlePage* TitlePagePtr () // metoda zwracajaca tytul publikacji
 		{
 			return _TitlePage_ptr;
 		} 
 
-		void operator=(Book& object);
+		Book& operator=( const Book& object);
 		// operator przypisania
 
 		Book& operator++();
 		// operator inkrementacji liczby stron
 
-		~Book () // dekonstruktor klasy Book
+		~Book () override // dekonstruktor klasy Book
 		{
-			for (int i=0;i<_number_of_pages;i++)
+			for (int i=0;i<_number_of_pages; i++)
 			{
 				delete pages[i];
 			}
 			delete _TitlePage_ptr;
-		}	
+		}
+
 		std::vector <Page*> pages;
+
 	protected:
 		TitlePage* _TitlePage_ptr; // wskaznik do strony tytulowej
 		

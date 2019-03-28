@@ -2,8 +2,9 @@
 #include "Page.h"
 
 class B5Page : public Page {
-
-		 std::string GetHeader(void) override 
+		
+		public: 
+		 std::string GetHeader() override
 		 {
 			 return _Header;
 		 }
@@ -13,7 +14,7 @@ class B5Page : public Page {
 			 _Header = str;
 		 }
 
-		 std::string GetTextBuffer (void) override
+		 std::string GetTextBuffer () override
 		 {
 			 return _Text_buffer;
 		 }
@@ -22,4 +23,7 @@ class B5Page : public Page {
 		 {
 			 _Text_buffer = str;
 		 }
+		 B5Page(const B5Page& object):Page(object) {};
+		 
+		 explicit B5Page(std::string str = "NULL",std::string str2 = "NULL"): Page(str,str2) {};
 };
