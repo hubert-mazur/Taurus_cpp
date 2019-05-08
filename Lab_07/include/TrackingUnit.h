@@ -2,26 +2,63 @@
 
 #include "Gps.h"
 #include "TrackingSystem.h"
-
+#include "Haversine.h"
 class TrackingUnit : public Gps, public TrackingSystem
 {
-	public:
-		
-		 TrackingUnit():Compass("South"){};
+public:
+	friend std::ostream &operator<<(std::ostream &, const TrackingUnit &object); // operatot, that provides output
 
-		std::string CompassDirection () override
+	TrackingUnit() : Compass("South"){obj = NULL;}; // class constructor intializing direction
+
+	~TrackingUnit() // deconstructor
+	{
+		delete obj;
+	}
+
+	std::string CompassDirection() override //inherited method, that returns direction
+	{
+		return "TUnit/" + _direction;
+	}
+
+	void Start() // setting starting point
+	{
+		if (!obj)
+		obj = new class Distance(*this, *this);
+		else
 		{
-			return "TUnit/" + _direction;
+			obj->Start(Coordinate(Latitude(),Longitude()));
 		}
+			
+	}
 
-		void Start ()
-		{
+	TrackingUnit &LocationInfo()
+	{
+		return *this;
+	}
 
-		}
-		
-		double LocationInfo ()
-		{
-			return 0.0;
-		}
+	void Location(const Coordinate &object) // info about location
+	{
+		Longitude(object.Latitude());
+		Latitude(object.Longitude());
+	}
 
+	void Go(double x, std::string str) // moving in direction
+	{
+		this->MoveInDirection(x, str);
+		obj->End(*this);
+	}
+
+	double Distance() // distance between points
+	{
+		return obj->Value();
+	}
+
+private:
+	class Distance *obj; // pointer to distance class, necessary due to distance calculations
 };
+
+inline std::ostream &operator<<(std::ostream &os, const TrackingUnit &object)
+{
+	os << "Longitude: " << object.Longitude() << " Latitude: " << object.Latitude();
+	return os;
+}
