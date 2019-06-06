@@ -3,7 +3,7 @@
 #include "Pomieszczenie.h"
 
 
-template <void (Pomieszczenie::*T)() const>
+template <void (Pomieszczenie::*T)() >
 	void Lokaj (Pomieszczenie &object)
 	{
 		(object.*T)();
@@ -15,7 +15,7 @@ template <int>
 		std::cout<<"Nic nie robie."<<std::endl;
 	}
 
-template <void (Pomieszczenie::*T)() const>
+template <void (Pomieszczenie::*T)() >
 	void Lokaj (const Pomieszczenie &object)
 	{
 		std::cout<<"Pomieszczenie "<<object.getName()<<" jest zamkniete."<<std::endl;
