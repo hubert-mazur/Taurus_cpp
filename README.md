@@ -1,6 +1,6 @@
 # C++ programming
 
-## University: University of Science and Tchnology in Cracow
+## University: University of Science and Technology in Cracow
 ## Faculty: Faculty of Physics and Applied IT
 ## Studies year: FOURTH
 
